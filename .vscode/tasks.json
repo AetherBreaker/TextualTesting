@@ -1,0 +1,55 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Launch Textual Console",
+            "type": "shell",
+            "command": {
+                "value": [
+                    "${workspaceFolder}/.venv/Scripts/Activate.ps1; textual"
+                ],
+                "quoting": "escape"
+            },
+            "args": ["console"],
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "dedicated",
+                "group": "Textual Debug"
+            }
+        },
+        {
+            "label": "Launch in External Terminal",
+            "type": "shell",
+            "command": {
+                "value": [
+                    "${workspaceFolder}/.venv/Scripts/Activate.ps1; textual"
+                ],
+                "quoting": "escape"
+            },
+            "args": ["serve", "--dev", "src\\__main__.py"],
+            "options": {
+                "env": {
+                    "PYTHONPATH": "${workspaceFolder}/src"
+                }
+            },
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "dedicated",
+                "group": "Textual Debug"
+            }
+        },
+        {
+            "label": "Textual Launch Setup",
+            "dependsOn": [
+                "Launch Textual Console",
+                "Launch in External Terminal"
+            ]
+        }
+    ]
+}
