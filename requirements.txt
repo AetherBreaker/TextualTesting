@@ -1,0 +1,13 @@
+debugpy
+pandas
+pandas-stubs
+pandasql
+pydantic
+pydantic-settings
+python-dateutil
+textual[syntax]
+textual-dev
+types-python-dateutil
+pypika
+paramiko
+rich
