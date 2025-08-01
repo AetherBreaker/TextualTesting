@@ -5,7 +5,7 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Project",
+            "name": "test",
             "type": "debugpy",
             "request": "attach",
             "justMyCode": true,
@@ -13,6 +13,17 @@
                 "host": "127.0.0.1",
                 "port": 5678
             }
+        },
+        {
+            "name": "Project",
+            "type": "debugpy",
+            "request": "attach",
+            "justMyCode": true,
+            "connect": {
+                "host": "127.0.0.1",
+                "port": 5678
+            },
+            "preLaunchTask": "Textual Launch Setup"
         },
         {
             "name": "Current File",

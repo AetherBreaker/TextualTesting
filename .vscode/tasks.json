@@ -3,53 +3,72 @@
     // for the documentation about the tasks.json format
     "version": "2.0.0",
     "tasks": [
+        // {
+        //     "label": "Launch Textual Console",
+        //     "type": "shell",
+        //     "command": "Start-Process",
+        //     "args": [
+        //         "-FilePath",
+        //         "powershell.exe",
+        //         "-ArgumentList",
+        //         "-File \"${workspaceFolder}/tasks/launch_textual_console.ps\" -Parameter1 \"${workspaceFolder}\""
+        //     ],
+        //     "options": {
+        //         "env": {
+        //             "PYTHONPATH": "${workspaceFolder}/src"
+        //         }
+        //     },
+        //     "presentation": {
+        //         "echo": true,
+        //         "reveal": "always",
+        //         "focus": false,
+        //         "panel": "dedicated"
+        //     },
+        //     "hide": true
+        // },
+        // {
+        //     "label": "Launch in External Terminal",
+        //     "type": "shell",
+        //     "command": "Start-Process",
+        //     "args": [
+        //         "-FilePath",
+        //         "powershell.exe",
+        //         "-ArgumentList",
+        //         "-File \"${workspaceFolder}/tasks/launch_textual_webserver.ps1\" -Parameter1 \"${workspaceFolder}\""
+        //     ],
+        //     "options": {
+        //         "env": {
+        //             "PYTHONPATH": "${workspaceFolder}/src"
+        //         }
+        //     },
+        //     "presentation": {
+        //         "echo": true,
+        //         "reveal": "always",
+        //         "focus": false,
+        //         "panel": "dedicated"
+        //     },
+        //     "hide": true
+        // },
+        // {
+        //     "label": "Textual Launch Setup",
+        //     "dependsOn": [
+        //         "Launch Textual Console",
+        //         "Launch in External Terminal"
+        //     ]
+        // }
         {
-            "label": "Launch Textual Console",
+            "label": "Textual Launch Setup",
             "type": "shell",
-            "command": {
-                "value": [
-                    "${workspaceFolder}/.venv/Scripts/Activate.ps1; textual"
-                ],
-                "quoting": "escape"
-            },
-            "args": ["console"],
-            "presentation": {
-                "echo": true,
-                "reveal": "always",
-                "focus": false,
-                "panel": "dedicated",
-                "group": "Textual Debug"
-            }
-        },
-        {
-            "label": "Launch in External Terminal",
-            "type": "shell",
-            "command": {
-                "value": [
-                    "${workspaceFolder}/.venv/Scripts/Activate.ps1; textual"
-                ],
-                "quoting": "escape"
-            },
-            "args": ["serve", "--dev", "src\\__main__.py"],
+            "command": "${workspaceFolder}/tasks/launch_textual_debug.ps1",
+            "args": ["${workspaceFolder}"],
             "options": {
                 "env": {
                     "PYTHONPATH": "${workspaceFolder}/src"
                 }
             },
             "presentation": {
-                "echo": true,
-                "reveal": "always",
-                "focus": false,
-                "panel": "dedicated",
-                "group": "Textual Debug"
+                "close": true
             }
-        },
-        {
-            "label": "Textual Launch Setup",
-            "dependsOn": [
-                "Launch Textual Console",
-                "Launch in External Terminal"
-            ]
         }
     ]
 }
